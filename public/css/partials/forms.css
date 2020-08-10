@@ -33,17 +33,20 @@
 }
 
 .input-block:focus-within::after,
-.textarea-block:focus-visible::after{
+.textarea-block:focus-within::after{
     content: '';
-
     width: calc(100% - 3.2rem);
     height: 2px;
-    background: var(--color-primary-light);
-
+    background: var(--color-input-focus);
     position: absolute;
     left: 1.6rem;
-
     bottom: 0;
+}
+
+.textarea-block:focus-within::after{
+    content: '';
+    background: var(--color-input-focus);
+    bottom: 0.8rem;
 }
 
 label small{

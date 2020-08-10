@@ -1,6 +1,7 @@
 const { subjects, weekdays, getSubject, convertHoursToMinutes } = require('./utils/format')
 
 const Database = require('./database/db')
+const createProffy = require('./database/createProffy')
 
 function pageLanding(req, res) {
     return res.render('index.html')
@@ -38,11 +39,12 @@ async function pageStudy(req, res) {
             proffy.subject = getSubject(proffy.subject)
         })
         
-        return res.render('study.html', { proffys, subjects, filters, weekdays})
+        return res.render('study.html', {proffys,subjects,filters,weekdays})
     } catch (error) {
         console.error(error)
     }
 }
+
 
 function pageGiveClasses(req, res) {
     return res.render('give-classes.html',{ subjects, weekdays })
@@ -50,6 +52,7 @@ function pageGiveClasses(req, res) {
 
 async function saveClasses(req, res) {
     const createProffy = require('./database/createProffy')
+    
 
     const proffyValue = {
         name: req.body.name,
@@ -80,15 +83,21 @@ async function saveClasses(req, res) {
         queryString += '&weekday=' + req.body.weekday[0]
         queryString += '&time' + req.body.time_from[0]
 
-        return res.redirect('/study' + queryString)
+        return res.render('success.html')
     } catch (error) {
         console.error(error)
     }
 }
 
+async function successCreatedProffy(req, res) {
+    await createProffy
+    return res.render('success.html')
+  }
+
 module.exports = {
     pageLanding,
     pageStudy,
     pageGiveClasses,
-    saveClasses
+    saveClasses,
+    successCreatedProffy
 }
