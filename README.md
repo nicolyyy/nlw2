@@ -28,10 +28,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone <https://github.com/nicolyyy/nlw2.git>
+$ git clone <https://github.com/nicolyyy/proffy.git>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd nlw2
+$ cd proffy
 
 # Instale as dependências
 $ npm install
