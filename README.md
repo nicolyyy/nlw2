@@ -45,7 +45,7 @@ $ localhost:5500
 ```
 
 ## :eyes: Overview
-<p align="center">
-  <img width="600"src="/public/img/overview.gif"/> 
+<p align="left">
+  <img src="/public/img/overview.gif"/> 
 </p>
 
